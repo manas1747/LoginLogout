@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <br/>
+    <br/>
+    <form action="{% url 'signin' %}" method="post">
+        {% csrf_token %}
+        <label for="user_name">Enter Username: </label>
+        <input id="user_name" type="text" name="user_name" placeholder="username">
+        <br/>
+        <label for="user_password">Enter Password: </label>
+        <input id="user_password" type="password" name="user_password" placeholder="password">
+        <br/>
+        <input type="submit" value="Signin">
+    </form>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <a href="{% url 'index' %}">Home</a>
+
+
+</body>
+</html>
