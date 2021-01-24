@@ -15,16 +15,22 @@
     {% if not user.is_authenticated %}
         <a href="{% url 'signup' %}">Signup</a> or <a href="{% url 'signin' %}">Signin</a>
     {% else %}
+        <p><i>Hello, {{user.username}}</i></p>
         {% if user.is_staff %}
-            <p><i>Hello, {{user.username}}</i></p>
             <h3>List of registered users:-</h3>
             {% for user in user_list %}
                 <li><a href="{% url 'userdetail' user.username %}">{{user.username}}</a></li>
             {% endfor %}
+        {% else %}
+            <li><a href="{% url 'city_list' %}">List City Visited</a></li>
+            <li><a href="{% url 'create_city' %}">Add City</a></li>
+
         {% endif %}
         <br/>
-        <li><a href="{% url 'city_list' %}">List City Visited</a></li>
-        <li><a href="{% url 'create_city' %}">Add City</a></li>
+        <br/>
+        <li><a href="{% url 'userdetail' user.username %}">My Profile</a></li>
+        <br/>
+
 
     {% endif %}
 
